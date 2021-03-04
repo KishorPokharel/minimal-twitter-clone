@@ -1,0 +1,67 @@
+<%- contentFor('main') %>
+<div class="card w-100" style="margin: 20px">
+    <div class="card-body">
+        <h3 class="card-title" style="text-transform: capitalize">
+            <%= blog.title%>
+        </h3>
+        <p class="card-text"><%= blog.body %></p>
+        <small style="margin-bottom: 20px; display: block"
+            >Created by
+            <strong
+                ><%=blog.user && blog.user.name %> | <%= blog.user &&
+                blog.user.email %>
+            </strong></small
+        >
+        <div class="" style="display: flex">
+            <i
+                class="fa fa-heart heart-icon <% if (isAuthenticated && blog.is_liked) { %> is-hearted <% } %>"
+                data-id="<%- blog.id %>"
+            ></i>
+            <p style="margin-left: 10px" class="likes-count">
+                <%= blog.likes.length %>
+            </p>
+        </div>
+        <% if (isAuthenticated && blog.userId === user.id) { %>
+        <button class="deletePostBtn btn btn-primary" data-id="<%= blog.id %>">
+            Delete
+        </button>
+        <% } %>
+        <form
+            action="/comments/<%= blog.id %>"
+            method="post"
+            style="margin: 20px 0"
+        >
+            <div class="form-group">
+                <label for="">Add a Comment</label>
+                <textarea
+                    class="form-control"
+                    name="comment"
+                    id=""
+                    cols="30"
+                    rows="10"
+                ></textarea>
+            </div>
+            <div class="form-group">
+                <input
+                    class="form-control btn btn-info"
+                    type="submit"
+                    value="Submit"
+                />
+            </div>
+        </form>
+        <hr />
+        <h3>All Comments</h3>
+        <% comments.forEach(comment => { %>
+        <div
+            style="
+                margin-top: 20px;
+                padding: 10px;
+                border-left: 3px solid rgb(51, 25, 77);
+            "
+        >
+            <h4><%= comment.user.name %></h4>
+            <p><%= comment.body %></p>
+        </div>
+        <% }) %>
+    </div>
+</div>

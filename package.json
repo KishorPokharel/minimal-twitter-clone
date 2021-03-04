@@ -1,0 +1,35 @@
+{
+    "name": "mywebsite",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "start": "nodemon ./bin/www",
+        "pretty": "npx prettier --write .",
+        "pr:w": "npx onchange \"**/*.js\" -- npx prettier --write ."
+    },
+    "dependencies": {
+        "bcrypt": "^5.0.0",
+        "connect-flash": "^0.1.1",
+        "connect-redis": "^5.0.0",
+        "cookie-parser": "~1.4.4",
+        "debug": "~2.6.9",
+        "dotenv": "^8.2.0",
+        "ejs": "^3.1.5",
+        "express": "~4.16.1",
+        "express-ejs-layouts": "^2.5.0",
+        "express-session": "^1.17.1",
+        "http-errors": "~1.6.3",
+        "knex": "^0.21.16",
+        "moment": "^2.29.1",
+        "morgan": "~1.9.1",
+        "objection": "^2.2.12",
+        "passport": "^0.4.1",
+        "passport-google-oauth20": "^2.0.0",
+        "pg": "^8.5.1",
+        "redis": "^3.0.2"
+    },
+    "devDependencies": {
+        "prettier": "^2.2.1",
+        "faker": "^5.2.0"
+    }
+}

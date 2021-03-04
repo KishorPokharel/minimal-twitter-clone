@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <%- include('../partials/head') %>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+            integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="<%= appURL %>stylesheets/style.css" />
+        <script src="<%= appURL %>javascripts/DeletePost.js" defer></script>
+        <script src="<%= appURL %>javascripts/LikePost.js" defer></script>
+    </head>
+    <body>
+        <%- include('../partials/header') %>
+        <main class="container"><%- main %></main>
+        <%- include('../partials/footer') %>
+    </body>
+</html>

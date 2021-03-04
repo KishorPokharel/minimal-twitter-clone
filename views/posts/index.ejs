@@ -1,0 +1,36 @@
+<%- contentFor('main') %> <% blog.forEach(blog => { %>
+<div class="card w-75" style="margin: 20px">
+    <div class="card-body">
+        <h5 class="card-title" style="text-transform: capitalize">
+            <a href="/blog/<%= blog.id %> "><%= blog.title%></a>
+        </h5>
+        <p
+            class="card-text line-clamp"
+            style="max-height: 100px; overflow-y: hidden"
+        >
+            <%= blog.body %>
+        </p>
+        <small style="margin-bottom: 20px; display: block"
+            >Created by
+            <strong
+                ><%=blog.user && blog.user.name %> | <%= blog.user &&
+                blog.user.email %>
+            </strong></small
+        >
+        <div class="" style="display: flex">
+            <i
+                class="fa fa-heart heart-icon <% if (isAuthenticated && blog.is_liked) { %> is-hearted <% } %>"
+                data-id="<%- blog.id %>"
+            ></i>
+            <p style="margin-left: 10px" class="likes-count">
+                <%= blog.likes.length %>
+            </p>
+        </div>
+        <% if (isAuthenticated && blog.userId === user.id) { %>
+        <button class="deletePostBtn btn btn-primary" data-id="<%= blog.id %>">
+            Delete
+        </button>
+        <% } %>
+    </div>
+</div>
+<% }) %>

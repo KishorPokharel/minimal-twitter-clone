@@ -1,0 +1,21 @@
+<%- contentFor('main') %>
+<h3 style="margin: 40px 0">Create a post</h3>
+<form action="/blog" method="post" style="margin: 20px 0">
+    <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" type="text" name="title" />
+    </div>
+    <div class="form-group">
+        <label for="">Body</label>
+        <textarea
+            class="form-control"
+            name="body"
+            id=""
+            cols="30"
+            rows="10"
+        ></textarea>
+    </div>
+    <div class="form-group">
+        <input class="form-control" type="submit" value="Create" />
+    </div>
+</form>
